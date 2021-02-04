@@ -1,0 +1,25 @@
+/* DESCRIPTIONS */
+.ant-descriptions {
+  .ant-descriptions-item {
+    padding: 0;
+    .ant-descriptions-item-container {
+      padding: 5px;
+
+      .ant-descriptions-item-content {
+        text-align: right;
+        color: rgba(0, 0, 0, 0.45);
+      }
+    }
+  }
+}
+
+/* TABLE */
+.ant-table {
+  .ant-table-content {
+    .ant-table-row, .ant-table-thead {
+      .ant-table-cell {
+        text-align: center;
+      }
+    }
+  }
+}

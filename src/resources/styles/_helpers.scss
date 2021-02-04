@@ -1,0 +1,46 @@
+$spaceAmounts: (-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 70, 75, 80, 100);
+$sides: (top, bottom, left, right, center);
+
+@each $space in $spaceAmounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+
+  .m-#{$space} {
+    margin: #{$space}px !important;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}px !important;
+  }
+}
+
+@each $side in $sides {
+  .text-#{$side} {
+    text-align: #{$side};
+  }
+}
+
+@each $side in $sides {
+  .float-#{$side} {
+    float: #{$side}
+  }
+}
+
+@each $side in $sides {
+  .float-#{$side} {
+    float: #{$side};
+  }
+}
+
+@each $space in $spaceAmounts {
+  .w-#{$space} {
+    width: #{$space}% !important;
+  }
+}

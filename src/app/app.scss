@@ -1,0 +1,49 @@
+@import "../resources/styles/colors";
+@import "../resources/styles/helpers";
+@import "../resources/styles/variables";
+@import "../resources/styles/antd";
+
+body {
+  margin: 0;
+  display: block;
+}
+
+#root {
+  height: calc(100% + env(safe-area-inset-top));
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+.layout {
+  flex-direction: column;
+  background-color: #ffffff;
+
+  main {
+    width: 100%;
+    overflow-y: scroll;
+    padding: 50px 0 55px 0;
+  }
+
+  &.private.role-admin main {
+    padding: 55px 20px;
+    height: 100vh;
+  }
+
+  &.private main > * {
+    @media only screen and (min-width: $lg) {
+      padding: 30px 20px;
+      padding-left: 220px;
+    }
+  }
+
+  &.public {
+    padding: 20px;
+    flex: 1;
+
+    main {
+      padding: 0;
+    }
+  }
+}
