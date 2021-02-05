@@ -1,29 +1,20 @@
 import { call, fork, take, cancel } from 'redux-saga/effects';
-import defaultFailure from './defaultFailure';
-import defaultSuccess from './defaultSuccess';
-
-const formatParams = (method, params) =>
-  method === 'get' ? { params } : params;
+import requestSuccess from './requestSuccess';
+import requestFailure from './requestFailure';
 
 const noNormalize = (data) => data;
 
 function* request({
   type,
-  method,
-  endpoint,
-  api,
+  service,
   params = {},
-  path = null,
+  redirect = null,
   callback = null,
+  onSuccess = null,
+  onFailure = null,
   normalizer = noNormalize,
-  onSuccess = defaultSuccess,
-  onFailure = defaultFailure,
 }) {
-  const response = yield call(
-    [api, method],
-    endpoint,
-    formatParams(method, params)
-  );
+  const response = yield call(service, params);
 
   if (!response) {
     // TODO: Handle server communication error
@@ -32,10 +23,16 @@ function* request({
     if ([200, 201].includes(status)) {
       // If request call is successful
       const normalizedData = normalizer(data);
-      yield call(onSuccess, type, normalizedData, path, callback);
+      yield call(requestSuccess, {
+        type,
+        normalizedData,
+        redirect,
+        callback,
+        onSuccess,
+      });
     } else {
       // If request call fails
-      yield call(onFailure, type, data, status);
+      yield call(requestFailure, { type, data, status, onFailure });
     }
   }
   // TODO: Handle any loader ends

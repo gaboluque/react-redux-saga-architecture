@@ -1,5 +1,6 @@
 const ROOT_PATH = '/';
 
-const LOG_IN_PATH = '/log-in';
+const POSTS_PATH = '/posts';
+const NEW_POST_PATH = `${POSTS_PATH}/new`;
 
-export { ROOT_PATH, LOG_IN_PATH };
+export { ROOT_PATH, POSTS_PATH, NEW_POST_PATH };

@@ -4,6 +4,11 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { ROOT_PATH } from '../routing/paths';
 import routes from '../routing/routes';
 
+/**
+ * This is the main routes container. We add it inside the app's layout so that
+ * it won't update each time we change routes.
+ *
+ */
 const RoutesContainer = () => {
   return (
     <Suspense fallback={<Skeleton active />}>

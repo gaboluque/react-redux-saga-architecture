@@ -1,12 +1,7 @@
 import React from 'react';
-import LogIn from '../LogIn';
 
 const Root = () => {
-  return (
-    <div className="home">
-      <LogIn />
-    </div>
-  );
+  return <div className="home">HOME</div>;
 };
 
 Root.propTypes = {};

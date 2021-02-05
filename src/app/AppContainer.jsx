@@ -1,25 +1,23 @@
-import { ConfigProvider, Layout } from 'antd';
+import { ConfigProvider } from 'antd';
 import esES from 'antd/es/locale/es_ES';
 import React from 'react';
-import './app.scss';
 import RoutesContainer from './RoutesContainer';
+import AppLayout from '../components/layout/AppLayout';
+import './app.scss';
 
+/**
+ * This is the main entry app component. Here we wll define the actual app layout
+ * and locale provider
+ *
+ */
 const AppContainer = () => {
   return (
     <ConfigProvider locale={esES}>
-      <Layout className="app-container">
-        <Layout className="layout">
-          <main>
-            <RoutesContainer />
-          </main>
-        </Layout>
-      </Layout>
+      <AppLayout>
+        <RoutesContainer />
+      </AppLayout>
     </ConfigProvider>
   );
 };
-
-AppContainer.propTypes = {};
-
-AppContainer.defaultProps = {};
 
 export default AppContainer;

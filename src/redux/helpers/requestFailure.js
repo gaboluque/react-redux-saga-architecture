@@ -1,7 +1,7 @@
-import { put } from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
 import createAction from './createAction';
 
-export default function* defaultFailure(type, data, status) {
+export default function* requestFailure({ type, data, status, onFailure }) {
   switch (status) {
     case 403:
       // TODO: Define what to do on 403
@@ -16,4 +16,5 @@ export default function* defaultFailure(type, data, status) {
       break;
   }
   yield put(createAction(`${type}_FAILURE`, data));
+  if (onFailure) yield call(onFailure);
 }

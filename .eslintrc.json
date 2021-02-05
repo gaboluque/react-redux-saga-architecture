@@ -14,7 +14,7 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "parser": "@babel/eslint-parser",
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -32,7 +32,6 @@
     "no-underscore-dangle": 0,
     "react/jsx-props-no-spreading": 0,
     "import/prefer-default-export": 0,
-    "import/no-cycle": 0,
     "react/no-danger": 0,
     "prettier/prettier": [
       "error",

@@ -1,7 +1,7 @@
-@import "../resources/styles/colors";
-@import "../resources/styles/helpers";
-@import "../resources/styles/variables";
-@import "../resources/styles/antd";
+@import "../styles/colors";
+@import "../styles/helpers";
+@import "../styles/variables";
+@import "../styles/antd";
 
 body {
   margin: 0;
@@ -10,6 +10,10 @@ body {
 
 #root {
   height: calc(100% + env(safe-area-inset-top));
+}
+
+.ant-layout {
+  min-height: 100%;
 }
 
 h1 {

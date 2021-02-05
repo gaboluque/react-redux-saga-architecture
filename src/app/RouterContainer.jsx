@@ -7,6 +7,11 @@ import history from '../routing/history';
 
 const AppContainer = lazy(() => import('./AppContainer'));
 
+/**
+ * This is the main router component. Here we will declare any wrappers needed
+ * for the react-router to work correctly
+ *
+ */
 function hashLinkScroll() {
   const { hash } = window.location;
   if (hash !== '') {
