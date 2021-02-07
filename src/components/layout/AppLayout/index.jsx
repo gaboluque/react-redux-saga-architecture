@@ -1,13 +1,21 @@
-import React from 'react';
-import { Layout } from 'antd';
+import React, { useEffect } from 'react';
+import { Button, Col, Layout, Row } from 'antd';
 import { func, node, string } from 'prop-types';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
+import i18n from 'i18next';
 import Breadcrumb from '../Breadcrumb';
 import Sidebar from '../Sidebar';
 import './appLayout.scss';
+import { changeLanguageNotifier } from '../../../redux/modules/layout/actions/changeLanguage';
 
-const { Header, Content } = Layout;
+const { Header, Content, Footer } = Layout;
+
+const lngButton = (lng, action) => (
+  <Button onClick={() => action(lng)} type="link">
+    {lng.toUpperCase()}
+  </Button>
+);
 
 /**
  * This is the main app layout component. We define elements like
@@ -22,7 +30,11 @@ const { Header, Content } = Layout;
  * @pathname        - (redux) the actual pathname from the router
  * @goTo            - (redux) function mapped to react-router-redux "push"
  */
-const AppLayout = ({ children, pathname, goTo }) => {
+const AppLayout = ({ children, pathname, goTo, language, setLanguage }) => {
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]);
+
   return (
     <Layout className="app-layout">
       <Header className="header">
@@ -33,6 +45,16 @@ const AppLayout = ({ children, pathname, goTo }) => {
         <Layout className="app-layout-content">
           <Breadcrumb pathname={pathname} goTo={goTo} />
           <Content className="content">{children}</Content>
+          <Footer>
+            <Row>
+              <Col md={20}>{process.env.REACT_APP_NAME}</Col>
+              <Col md={4}>
+                {lngButton('es', setLanguage)}
+                {'/'}
+                {lngButton('en', setLanguage)}
+              </Col>
+            </Row>
+          </Footer>
         </Layout>
       </Layout>
     </Layout>
@@ -43,14 +65,18 @@ AppLayout.propTypes = {
   children: node.isRequired,
   pathname: string.isRequired,
   goTo: func.isRequired,
+  setLanguage: func.isRequired,
+  language: string.isRequired,
 };
 
-const mapStateToProps = ({ router: { location } }) => ({
+const mapStateToProps = ({ router: { location }, layout }) => ({
   pathname: location.pathname,
+  language: layout.language,
 });
 
 const mapDispatchToProps = {
   goTo: push,
+  setLanguage: changeLanguageNotifier,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppLayout);

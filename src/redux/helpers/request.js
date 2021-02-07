@@ -2,8 +2,6 @@ import { call, fork, take, cancel } from 'redux-saga/effects';
 import requestSuccess from './requestSuccess';
 import requestFailure from './requestFailure';
 
-const noNormalize = (data) => data;
-
 function* request({
   type,
   service,
@@ -12,7 +10,7 @@ function* request({
   callback = null,
   onSuccess = null,
   onFailure = null,
-  normalizer = noNormalize,
+  normalizer = null,
 }) {
   const response = yield call(service, params);
 
@@ -22,10 +20,10 @@ function* request({
     const { status, data } = response;
     if ([200, 201].includes(status)) {
       // If request call is successful
-      const normalizedData = normalizer(data);
+      const normalizedData = normalizer ? normalizer(data) : data;
       yield call(requestSuccess, {
         type,
-        normalizedData,
+        data: normalizedData,
         redirect,
         callback,
         onSuccess,

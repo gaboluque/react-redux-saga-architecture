@@ -2,7 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import { notification } from 'antd';
 import notifyAction from '../../../helpers/notifyAction';
 import request from '../../../helpers/request';
-import createPosts from '../../../../services/testAPI/createPostService';
+import createPosts from '../../../../services/dummyAPI/createPostService';
 import { POSTS_PATH } from '../../../../routing/paths';
 import { fetchPostsNotifier } from './fetchPosts';
 

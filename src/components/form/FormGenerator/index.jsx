@@ -8,7 +8,6 @@ const FormGenerator = ({ fields, onSubmit, layout }) => {
   const [handleChange, formValues, errors, form] = useForm(fields);
 
   const handleSubmit = () => {
-    console.log(errors);
     if (!errors.length) {
       onSubmit(formValues);
     } else {

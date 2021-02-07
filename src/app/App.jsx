@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import { withTranslation } from 'react-i18next';
 import Loader from '../components/layout/Loader';
 
 // Lazy import to help the bundler code-split out code
@@ -16,4 +17,4 @@ const App = () => (
   </Suspense>
 );
 
-export default App;
+export default withTranslation()(App);

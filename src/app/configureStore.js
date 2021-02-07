@@ -9,9 +9,9 @@ import sagas from '../redux/sagas';
 import history from '../routing/history';
 
 const persistConfig = {
-  key: 'authType',
+  key: `${process.env.REACT_APP_NAME}_persist_store`,
   storage,
-  whitelist: ['cart', 'form', 'layout'],
+  whitelist: ['layout'],
 };
 const pReducer = persistReducer(persistConfig, reducers(history));
 

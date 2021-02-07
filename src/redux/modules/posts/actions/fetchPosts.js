@@ -1,7 +1,7 @@
 import { call } from 'redux-saga/effects';
 import notifyAction from '../../../helpers/notifyAction';
 import request from '../../../helpers/request';
-import fetchPosts from '../../../../services/testAPI/fetchPostsService';
+import fetchPosts from '../../../../services/dummyAPI/fetchPostsService';
 
 // CONSTANTS
 
@@ -9,28 +9,18 @@ export const FETCH_POSTS_ACTION = 'FETCH_POSTS_ACTION';
 export const FETCH_POSTS_SUCCESS = `${FETCH_POSTS_ACTION}_SUCCESS`;
 export const FETCH_POSTS_FAILURE = `${FETCH_POSTS_ACTION}_FAILURE`;
 
-/* LOG IN NOTIFIER */
-const formatter = (formValues) => {
-  return {
-    ...formValues,
-    role: 'ADMIN',
-  };
-};
-
-const fetchPostsNotifier = (formValues) => {
+const fetchPostsNotifier = () => {
   return notifyAction({
     type: FETCH_POSTS_ACTION,
     loader: true,
-    data: formatter(formValues),
   });
 };
 
 /* LOG IN ACTION */
-function* fetchPostsAction({ data }) {
+function* fetchPostsAction() {
   yield call(request, {
     type: FETCH_POSTS_ACTION,
     service: fetchPosts,
-    params: data,
     cancelId: 'fetch_posts',
   });
 }
