@@ -41,6 +41,7 @@ const Field = ({
   return (
     <Form.Item
       label={label}
+      htmlFor={name}
       validateStatus={getStatus()}
       help={item?.error}
       {...options}
