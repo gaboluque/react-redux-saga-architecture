@@ -1,5 +1,6 @@
 import { FETCH_POSTS_SUCCESS } from './actions/fetchPosts';
 
+// TODO: Store design
 export const INITIAL_STATE = {
   posts: [],
 };

@@ -1,7 +1,7 @@
 import { call } from 'redux-saga/effects';
 import notifyAction from '../../../helpers/notifyAction';
 import request from '../../../helpers/request';
-import fetchPosts from '../../../../services/dummyAPI/fetchPostsService';
+import fetchPosts from '../../../../services/api/dummyAPI/fetchPostsService';
 
 // CONSTANTS
 

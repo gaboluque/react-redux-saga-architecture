@@ -10,7 +10,7 @@ export default function* requestFailure({ type, data, status, onFailure }) {
       // TODO: Define what to do on 401
       break;
     case 408:
-      // TODO: Define what to do on 401
+      // TODO: Define what to do on 408
       break;
     default:
       break;

@@ -6,6 +6,7 @@ import { push } from 'react-router-redux';
 import { fetchPostsNotifier } from '../../../redux/modules/posts/actions/fetchPosts';
 import { postType } from '../../../utils/types/postsTypes';
 import { NEW_POST_PATH } from '../../../routing/paths';
+import PostListItem from './components/PostListItem';
 
 const PostsList = ({ fetchPosts, posts, newPost }) => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const PostsList = ({ fetchPosts, posts, newPost }) => {
         {posts.map((post) => {
           return (
             <List.Item key={post.id}>
-              <Card title={post.title}>{post.body}</Card>
+              <PostListItem post={post} />
             </List.Item>
           );
         })}

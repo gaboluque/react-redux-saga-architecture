@@ -1,32 +1,15 @@
 import { func } from 'prop-types';
 import React from 'react';
-import { Card, Input } from 'antd';
+import { Card } from 'antd';
 import { connect } from 'react-redux';
-import FormGenerator from '../../../components/form/FormGenerator';
 import { createPostsNotifier } from '../../../redux/modules/posts/actions/createPost';
 import './newPost.scss';
+import NewPostForm from './components/NewPostForm';
 
 const NewPost = ({ createPost }) => {
-  const fields = [
-    {
-      name: 'title',
-      placeholder: 'Title',
-      component: Input,
-      layout: { col: { span: 12 } },
-    },
-    {
-      name: 'body',
-      placeholder: 'Body',
-      layout: { col: { span: 12 } },
-      component: Input,
-    },
-  ];
-
-  const layout = { gutter: 16 };
-
   return (
     <Card className="sample-form-container" title="Post form">
-      <FormGenerator onSubmit={createPost} fields={fields} layout={layout} />
+      <NewPostForm submitPost={createPost} />
     </Card>
   );
 };
