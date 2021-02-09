@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import Loader from '../components/layout/Loader';
-import configureStore from './configureStore';
+import configureStore from '../redux/configureStore';
 
 const { store, persistor } = configureStore();
 const RouterContainer = lazy(() => import('./RouterContainer'));

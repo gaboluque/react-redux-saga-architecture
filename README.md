@@ -91,6 +91,7 @@ We have 5 levels in atomic design:
 ## TODO: I18N [E]
 ## TODO: Services [E]
 ## TODO: Redux + Saga [E]
+
 ## Testing
 Testing is a fundamental part on software development. It helps us detect software failures on specific conditions.
 This will help software engineers to check if the final product matches the expected requirements. Having a test suit

@@ -6,12 +6,20 @@
  *
  * @type          Action type (Eg. FETCH_DATA).
  * @data          (optional) An object containing the payload to the saga.
+ * @loader        (optional) A boolean to notify that we want to show a loader in the screen.
  * @callback      (optional) A function that will be called after the saga has finished with any data processed.
  */
-const notifyAction = ({ type, data = {}, callback = undefined }) => ({
+const notifyAction = ({
+  type,
+  data = {},
+  loader = false,
+  callback = undefined,
+}) => ({
   type,
   callback,
   data,
+  loader,
+  notifier: true,
 });
 
 export default notifyAction;

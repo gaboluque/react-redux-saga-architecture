@@ -2,7 +2,7 @@ import React from 'react';
 import { Breadcrumb as AntBreadcrumb } from 'antd';
 import { func, string } from 'prop-types';
 import { startCase } from 'lodash';
-import { ROOT_PATH } from '../../../routing/paths';
+import { HOME_PATH } from '../../../routing/paths';
 import './breadcrumb.scss';
 
 const reconstructPath = (path, index) => {
@@ -31,7 +31,7 @@ const Breadcrumb = ({ pathname, goTo }) => {
     <AntBreadcrumb className="breadcrumb">
       <AntBreadcrumb.Item
         className="clickable"
-        onClick={handleClick(ROOT_PATH)}
+        onClick={handleClick(HOME_PATH)}
       >
         Home
       </AntBreadcrumb.Item>

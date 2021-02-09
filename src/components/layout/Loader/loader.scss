@@ -14,6 +14,10 @@
   justify-content: center;
   z-index: 10000;
 
+  &.transparent {
+    opacity: 0.5;
+  }
+
   .logo {
     text-align: center;
     font-size: 40px;

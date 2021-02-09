@@ -20,7 +20,7 @@ const FormGenerator = ({ fields, onSubmit, layout }) => {
   };
 
   return (
-    <Form layout="vertical" className="form-generator">
+    <Form onFinish={handleSubmit} layout="vertical" className="form-generator">
       <Row {...layout}>
         {fields.map(
           ({
@@ -47,7 +47,7 @@ const FormGenerator = ({ fields, onSubmit, layout }) => {
           )
         )}
       </Row>
-      <Button onClick={handleSubmit}>Submit</Button>
+      <Button htmlType="submit">Submit</Button>
     </Form>
   );
 };

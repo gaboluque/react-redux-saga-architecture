@@ -5,8 +5,7 @@ export const CHANGE_LANGUAGE_ACTION = 'CHANGE_LANGUAGE_ACTION';
 
 /* CHANGE LANGUAGE NOTIFIER */
 
-const changeLanguageNotifier = (language) => {
-  return createAction(CHANGE_LANGUAGE_ACTION, language);
-};
+const changeLanguageNotifier = (language) =>
+  createAction(CHANGE_LANGUAGE_ACTION, language);
 
 export { changeLanguageNotifier };

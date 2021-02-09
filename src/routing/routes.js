@@ -1,15 +1,16 @@
 import { lazy } from 'react';
-import Root from '../pages/Root';
+import Home from '../pages/Home';
 import * as paths from './paths';
 import PostsList from '../pages/Posts/PostsList';
+import { USER_ROLE } from '../utils/auth/roles';
 
 const Form = lazy(() => import('../pages/Posts/NewPost'));
 
 const routes = [
   {
     title: 'Home',
-    path: paths.ROOT_PATH,
-    Component: Root,
+    path: paths.HOME_PATH,
+    Component: Home,
     exact: true,
     roles: [],
   },
@@ -18,14 +19,14 @@ const routes = [
     path: paths.POSTS_PATH,
     Component: PostsList,
     exact: true,
-    roles: [],
+    roles: [USER_ROLE],
   },
   {
     title: 'New',
     path: paths.NEW_POST_PATH,
     Component: Form,
     exact: true,
-    roles: [],
+    roles: [USER_ROLE],
   },
 ];
 

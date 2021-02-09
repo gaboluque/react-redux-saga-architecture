@@ -4,7 +4,6 @@ import en from './en.json';
 import es from './es.json';
 
 export const t = (str) => i18n.t(str);
-export const changeLanguage = (lng) => i18n.changeLanguage(lng);
 
 i18n.use(initReactI18next).init({
   resources: {

@@ -2,11 +2,9 @@ import React from 'react';
 import { Menu, Layout } from 'antd';
 import { func, string } from 'prop-types';
 import './sidebar.scss';
-import routes from '../../../routing/routes';
+import menu from '../../../routing/menu';
 
 const { Sider } = Layout;
-
-const menu = routes.filter(({ title }) => ['Posts'].includes(title));
 
 /**
  * Sidebar component
@@ -16,15 +14,15 @@ const menu = routes.filter(({ title }) => ['Posts'].includes(title));
  * @goTo     - (redux) function mapped to react-router-redux "push"
  *
  */
-const Sidebar = ({ pathname, goTo }) => {
+const Sidebar = ({ pathname, goTo, role }) => {
   const handleClick = (path) => () => goTo(path);
 
   return (
     <Sider width={200} className="sidebar">
       <Menu mode="inline" selectedKeys={pathname} className="sidebar-menu">
-        {menu.map((route) => (
-          <Menu.Item key={route.path} onClick={handleClick(route.path)}>
-            {route.title}
+        {menu[role].map(({ path, icon: Icon, title }) => (
+          <Menu.Item key={path} icon={<Icon />} onClick={handleClick(path)}>
+            {title}
           </Menu.Item>
         ))}
       </Menu>
@@ -35,6 +33,11 @@ const Sidebar = ({ pathname, goTo }) => {
 Sidebar.propTypes = {
   pathname: string.isRequired,
   goTo: func.isRequired,
+  role: string,
+};
+
+Sidebar.defaultProps = {
+  role: 'public',
 };
 
 export default Sidebar;

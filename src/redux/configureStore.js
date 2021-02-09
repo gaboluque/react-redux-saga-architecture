@@ -3,8 +3,8 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
-import reducers from '../redux/reducers';
-import sagas from '../redux/sagas';
+import reducers from './reducers';
+import sagas from './sagas';
 
 import history from '../routing/history';
 

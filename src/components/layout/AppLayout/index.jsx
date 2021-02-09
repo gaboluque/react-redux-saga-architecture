@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { Button, Col, Layout, Row } from 'antd';
 import { func, node, string } from 'prop-types';
-import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 import i18n from 'i18next';
 import Breadcrumb from '../Breadcrumb';
 import Sidebar from '../Sidebar';
 import './appLayout.scss';
-import { changeLanguageNotifier } from '../../../redux/modules/layout/actions/changeLanguage';
 
 const { Header, Content, Footer } = Layout;
 
@@ -30,20 +27,33 @@ const lngButton = (lng, action) => (
  * @pathname        - (redux) the actual pathname from the router
  * @goTo            - (redux) function mapped to react-router-redux "push"
  */
-const AppLayout = ({ children, pathname, goTo, language, setLanguage }) => {
+const AppLayout = ({
+  children,
+  pathname,
+  goTo,
+  language,
+  setLanguage,
+  token,
+}) => {
   useEffect(() => {
     i18n.changeLanguage(language);
   }, [language]);
 
+  const withHeader = !!token;
+  const withSidebar = !!token;
+  const withBreadcrumb = !!token;
+
   return (
     <Layout className="app-layout">
-      <Header className="header">
-        <span>My App</span>
-      </Header>
+      {withHeader && (
+        <Header className="header">
+          <span>My App</span>
+        </Header>
+      )}
       <Layout>
-        <Sidebar pathname={pathname} goTo={goTo} />
+        {withSidebar && <Sidebar pathname={pathname} goTo={goTo} />}
         <Layout className="app-layout-content">
-          <Breadcrumb pathname={pathname} goTo={goTo} />
+          {withBreadcrumb && <Breadcrumb pathname={pathname} goTo={goTo} />}
           <Content className="content">{children}</Content>
           <Footer>
             <Row>
@@ -67,16 +77,11 @@ AppLayout.propTypes = {
   goTo: func.isRequired,
   setLanguage: func.isRequired,
   language: string.isRequired,
+  token: string,
 };
 
-const mapStateToProps = ({ router: { location }, layout }) => ({
-  pathname: location.pathname,
-  language: layout.language,
-});
-
-const mapDispatchToProps = {
-  goTo: push,
-  setLanguage: changeLanguageNotifier,
+AppLayout.defaultProps = {
+  token: null,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppLayout);
+export default AppLayout;
