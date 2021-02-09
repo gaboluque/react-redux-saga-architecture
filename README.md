@@ -70,7 +70,13 @@ It's possible to [customize Antd theme](https://ant.design/docs/react/customize-
 That's the main reason to use [react-app-rewired](https://www.npmjs.com/package/react-app-rewired), so that we can make
 some webpack overrides without the need of [ejecting the application](https://create-react-app.dev/docs/available-scripts/#npm-run-eject)
 
-## TODO: Multi Env Setup
+## Multi Env Setup - Build
+To ensure we can have multiple environments for our application, a multi-environment setup approach was considered.
+With the help of [env-cmd](https://www.npmjs.com/package/env-cmd) we can use multiple `.env` files, mainly for the building 
+process.
+
+To run an environment build just run `yarn build:<environment>` for example `yarn build:staging` will look for the
+`.env.staging` file to configure the build.
 
 
 ## Technologies
