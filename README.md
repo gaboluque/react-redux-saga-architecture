@@ -2,6 +2,8 @@
 
 Opinionated React redux saga architecture sample project (In progress)
 
+Watch DEMO [here](https://gaboluque.github.io/react-redux-saga-architecture)
+
 
 ## How to run this project
 
