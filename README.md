@@ -60,7 +60,7 @@ Child/View components will:
  - Render information properly.
  - (Optional) have local state that can help the presentation process.
 
-<img src="https://miro.medium.com/max/4800/1*DNZsESO8pf7enEfmhk5ibA.jpeg" data-canonical-src="https://miro.medium.com/max/4800/1*DNZsESO8pf7enEfmhk5ibA.jpeg" width="300" height="300" />
+<img alt='Container-View Pattern' src="https://miro.medium.com/max/4800/1*DNZsESO8pf7enEfmhk5ibA.jpeg" data-canonical-src="https://miro.medium.com/max/4800/1*DNZsESO8pf7enEfmhk5ibA.jpeg" width="300" height="300" />
 
 ### Atomic design
 Atomic design is a methodology for creating design systems. The idea behind this methodology is 
@@ -91,7 +91,17 @@ We have 5 levels in atomic design:
 ## TODO: I18N [E]
 ## TODO: Services [E]
 ## TODO: Redux + Saga [E]
-## TODO: Testing [E]
+## Testing
+Testing is a fundamental part on software development. It helps us detect software failures on specific conditions.
+This will help software engineers to check if the final product matches the expected requirements. Having a test suit
+reduces our chance to _break_ something from out code-base which in the long-run will help us have a more stable and robust
+application.
+
+For this project we decided to use `Jest` and `Enzyme` to test our application. `Jest` is a Javascript test runner, which helps
+to create, run and structure tests. `Enzyme` is a testing utility for React that makes it easier to test
+React components, as you can render, manipulate and simulate them inside your tests.
+
+It's very important that every piece of code is tested as it will ensure our application behaves as we expect.
 
 ## Ant Design
 Ant design is component library developed by Alibaba full of out-of-the-box, easy-to-use 
