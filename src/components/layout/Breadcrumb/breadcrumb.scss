@@ -1,0 +1,11 @@
+@import "src/styles/colors";
+
+.breadcrumb {
+  span.clickable {
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-blue
+    }
+  }
+}

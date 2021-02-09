@@ -1,5 +1,32 @@
+@import "variables";
+
 $spaceAmounts: (-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 70, 75, 80, 100);
 $sides: (top, bottom, left, right, center);
+
+@mixin phone {
+  @media (min-width: 0px) and (max-width: $sm) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $sm + 1) and (max-width: $md) {
+    @content
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $lg) {
+    @content
+  }
+}
+
+@mixin internet-explorer {
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content
+  }
+}
 
 @each $space in $spaceAmounts {
   @each $side in $sides {
@@ -25,17 +52,9 @@ $sides: (top, bottom, left, right, center);
   .text-#{$side} {
     text-align: #{$side};
   }
-}
 
-@each $side in $sides {
   .float-#{$side} {
     float: #{$side}
-  }
-}
-
-@each $side in $sides {
-  .float-#{$side} {
-    float: #{$side};
   }
 }
 
