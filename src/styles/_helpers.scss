@@ -60,6 +60,6 @@ $sides: (top, bottom, left, right, center);
 
 @each $space in $spaceAmounts {
   .w-#{$space} {
-    width: #{$space}% !important;
+    width: '#{$space}%' !important;
   }
 }

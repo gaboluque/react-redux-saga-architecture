@@ -20,7 +20,24 @@ Watch DEMO [here](https://gaboluque.github.io/react-redux-saga-architecture)
 
 ## Design Patterns
 
-### TODO: Flux architecture
+### Flux
+Flux is a pattern for managing data flow in our applications, the main idea behind it is this: Data only flows in one 
+direction. This pattern is heavily used throughout React and Redux applications.
+
+The main parts of the Flux pattern are:
+- **Dispatcher**: The dispatcher receives actions and sends (dispatches) them to the stores. It's important to note that
+  every store will receive every action. 
+- **Store**: Stores will (as it name states) store data of our application. They will register to the dispatcher to receive
+  actions, each store will determine if it should or not use the dispatched action. It's important to understand that
+  data must only be mutated by responding to an action.
+- **Actions**: Actions will define our application's internal API, the capture WHAT we want to do, rather than HOW we
+  want to do it. They are simple objects with a `type` property and other data required, a `payload` for example.
+- **Views**: Views will be in charge of displaying the stores' data. They will subscribe to change events from the stores
+  in order to know when they should change what is rendered.
+  
+#### Data Flow
+![Data flow image](https://raw.githubusercontent.com/facebook/flux/master/examples/flux-concepts/flux-simple-f8-diagram-with-client-action-1300w.png)
+
 ### Container-View Pattern
 The Container-View pattern or Container-Presentational is useful design pattern that can help structure
 out React application as it will help divide responsibilities with ease. Although this pattern should not
@@ -43,7 +60,30 @@ Child/View components will:
  - Render information properly.
  - (Optional) have local state that can help the presentation process.
 
-### TODO: Atomic design
+<img src="https://miro.medium.com/max/4800/1*DNZsESO8pf7enEfmhk5ibA.jpeg" data-canonical-src="https://miro.medium.com/max/4800/1*DNZsESO8pf7enEfmhk5ibA.jpeg" width="300" height="300" />
+
+### Atomic design
+Atomic design is a methodology for creating design systems. The idea behind this methodology is 
+"Do one thing and fo it right". Every piece of our components should have just one responsibility.
+We should build our components starting from the smallest part to the whole component.
+
+We have 5 levels in atomic design: 
+
+1. **Atoms**: These are the basic building blocks, the smallest parts in our application's components.
+    - E.g. Labels, Buttons, Inputs
+2. **Molecules**: When we combine atoms together, we get the smallest fundamental unit, which will serve as the 
+   backbone of out application.
+    - E.g. Form items, buttons with icons, cards
+3. **Organisms**: Once we have some building blocks (molecules) we can combine them to form relative complex
+   organisms. They will be a specific part of an interface
+   - E.g. Nav bars, side bars, item lists
+4. **Templates**: Here we stop our chemistry analogy to get more sense into the component pieces. Templates 
+   stitch together organisms to generate complete reusable components. They are more concrete and have some context
+   behind them.
+4. **Pages**: Pages are specific instances of templates, giving the template elements a more concrete representation.
+   This is what the user will see.
+
+![Atomic design](https://miro.medium.com/max/4800/1*V5oi-JrH4RlEQuYdVrQXig.png)
 
 
 ## TODO: Directory/Folder structure [E]
@@ -51,6 +91,7 @@ Child/View components will:
 ## TODO: I18N [E]
 ## TODO: Services [E]
 ## TODO: Redux + Saga [E]
+## TODO: Testing [E]
 
 ## Ant Design
 Ant design is component library developed by Alibaba full of out-of-the-box, easy-to-use 
@@ -90,3 +131,11 @@ To run an environment build just run `yarn build:<environment>` for example `yar
 - [Sass](https://sass-lang.com/)
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://enzymejs.github.io/enzyme/)
+
+## Interesting articles
+- [Flux overview](https://github.com/facebook/flux/tree/master/examples)
+- [React architecture - 1](https://saurabhshah23.medium.com/react-js-architecture-features-folder-structure-design-pattern-70b7b9103f22)
+- [React architecture - 2](https://everyday.codes/javascript/architecture-of-large-react-apps-tools-and-techniques/)
+- [React architecture - 3](https://maddevs.io/blog/best-architecture-for-the-react-project/)
+- [React architecture - 4](https://github.com/markerikson/react-redux-links/blob/master/react-architecture.md)
+- [Atomic design](https://bradfrost.com/blog/post/atomic-web-design/)
