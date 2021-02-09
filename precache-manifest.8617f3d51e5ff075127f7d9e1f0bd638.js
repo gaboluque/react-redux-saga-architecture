@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d978f2c8e5e8a8d50fb4151b66e74543",
+    "revision": "a7dc16b059b07eef6fd1961f95ac3b7d",
     "url": "/react-redux-saga-architecture/index.html"
   },
   {
-    "revision": "d0f4ec325fe397fd993c",
-    "url": "/react-redux-saga-architecture/static/css/2.3c469aef.chunk.css"
+    "revision": "112e3c22fdf30712798a",
+    "url": "/react-redux-saga-architecture/static/css/2.8e866540.chunk.css"
   },
   {
     "revision": "66ab61f294fae72ba984",
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-redux-saga-architecture/static/css/main.614caddd.chunk.css"
   },
   {
-    "revision": "d0f4ec325fe397fd993c",
+    "revision": "112e3c22fdf30712798a",
     "url": "/react-redux-saga-architecture/static/js/2.e069fefa.chunk.js"
   },
   {
@@ -72,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-redux-saga-architecture/static/js/main.56013054.chunk.js"
   },
   {
-    "revision": "fc022d610c6446412ae0",
-    "url": "/react-redux-saga-architecture/static/js/runtime-main.3ce83497.js"
+    "revision": "703db7594206cc0de181",
+    "url": "/react-redux-saga-architecture/static/js/runtime-main.a2ee5fb9.js"
   }
 ]);
