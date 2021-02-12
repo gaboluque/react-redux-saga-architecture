@@ -2,17 +2,14 @@ import { call, put } from 'redux-saga/effects';
 import { notification } from 'antd';
 import notifyAction from '../../../helpers/notifyAction';
 import request from '../../../helpers/request';
-import createPosts from '../../../../services/api/dummyAPI/createPostService';
+import createPosts from '../../../../services/api/dummyAPI/posts/createPostService';
 import { POSTS_PATH } from '../../../../routing/paths';
 import { fetchPostsNotifier } from './fetchPosts';
-
-// CONSTANTS
 
 export const CREATE_POST_ACTION = 'CREATE_POST_ACTION';
 export const CREATE_POST_SUCCESS = `${CREATE_POST_ACTION}_SUCCESS`;
 export const CREATE_POST_FAILURE = `${CREATE_POST_ACTION}_FAILURE`;
 
-/* LOG IN NOTIFIER */
 const formatter = (formValues) => {
   return {
     ...formValues,
@@ -28,11 +25,9 @@ const createPostsNotifier = (formValues) => {
   });
 };
 
-/* LOG IN ACTION */
-
 function* createPostSuccess() {
   yield put(fetchPostsNotifier());
-  notification.success({ description: 'Post created correctly!' });
+  notification.success({ message: 'Post created correctly!' });
 }
 
 function* createPostsAction({ data }) {

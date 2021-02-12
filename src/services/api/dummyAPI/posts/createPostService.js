@@ -1,5 +1,5 @@
-import testApi from './index';
-import formatParams from '../helpers/formatParams';
+import testApi from '../index';
+import formatParams from '../../helpers/formatParams';
 
 const fakeDataParser = (data) => ({ ...data, parsedElement: 'Hi' });
 

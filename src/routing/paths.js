@@ -3,7 +3,7 @@ const HOME_PATH = '/';
 const POSTS_PATH = '/posts';
 const NEW_POST_PATH = `${POSTS_PATH}/new`;
 
-// AUTH
-const LOG_IN_PATH = '/log-in';
+const USERS_PATH = '/users';
+const USER_DETAIL_PATH = (id) => `${USERS_PATH}/${id}`;
 
-export { HOME_PATH, POSTS_PATH, NEW_POST_PATH, LOG_IN_PATH };
+export { HOME_PATH, POSTS_PATH, NEW_POST_PATH, USERS_PATH, USER_DETAIL_PATH };

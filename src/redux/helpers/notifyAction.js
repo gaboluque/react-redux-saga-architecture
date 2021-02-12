@@ -14,12 +14,14 @@ const notifyAction = ({
   data = {},
   loader = false,
   callback = undefined,
+  ...rest
 }) => ({
   type,
   callback,
   data,
   loader,
   notifier: true,
+  ...rest,
 });
 
 export default notifyAction;
