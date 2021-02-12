@@ -199,6 +199,8 @@ going to use the partiture we have in our store and use is to bring to life all 
 our store. They will ask for a new part of the partiture to the store and even ask for future parts of the partiture
 to be able to play later without interruptions, also will handle silences, this is a huge part of the music, waiting until the next part of the partiture is fully loaded to continue playing.
 
+<img src="https://miro.medium.com/max/2880/1*QERgzuzphdQz4e0fNs1CFQ.gif" alt='redux-saga' width='400' />
+
 ## Testing
 Testing is a fundamental part on software development. It helps us detect software failures on specific conditions.
 This will help software engineers to check if the final product matches the expected requirements. Having a test suit
